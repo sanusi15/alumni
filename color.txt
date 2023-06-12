@@ -1,0 +1,4 @@
+orange = #f08519
+biru = #01839b
+hijau = #049e74
+putih = #ffffff
