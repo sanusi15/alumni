@@ -100,30 +100,32 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item menu-open">
-                            <a href="<?= base_url('mhsRegist'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'mhsRegist' ? 'active' : '')  ?>">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Registrasi Siswa
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item menu-open">
-                            <a href="<?= base_url('jurusan'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'jurusan' ? 'active' : '')  ?>">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Jurusan
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item menu-open">
-                            <a href="<?= base_url('tahun'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'tahun' ? 'active' : '')  ?>">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Tahun Lulus
-                                </p>
-                            </a>
-                        </li>
+                        <?php if ($this->session->userdata('level') == 1) : ?>
+                            <li class="nav-item menu-open">
+                                <a href="<?= base_url('mhsRegist'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'mhsRegist' ? 'active' : '')  ?>">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>
+                                        Registrasi Siswa
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item menu-open">
+                                <a href="<?= base_url('jurusan'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'jurusan' ? 'active' : '')  ?>">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>
+                                        Jurusan
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item menu-open">
+                                <a href="<?= base_url('tahun'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'tahun' ? 'active' : '')  ?>">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>
+                                        Tahun Lulus
+                                    </p>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                         <li class="nav-item menu-open">
                             <a href="<?= base_url('report'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'report' ? 'active' : '')  ?>">
                                 <i class="nav-icon fas fa-print"></i>

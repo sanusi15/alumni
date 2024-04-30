@@ -25,9 +25,10 @@ class Admin extends CI_Controller
         $username = $this->input->post('username');
         $pass = $this->input->post('password');
 
-        $cek = $this->db->get_where('login', ['username' => $username, 'password' => $pass])->num_rows();
-        if ($cek >= 1) {
-            $this->session->set_userdata(['username' => 'Admin']);
+        $cek = $this->db->get_where('login', ['username' => $username, 'password' => $pass]);
+        if ($cek->num_rows() >= 1) {
+            $res = $cek->row();
+            $this->session->set_userdata(['username' => $res->username, 'level' => $res->level]);
             redirect('dashboard');
         } else {
             $this->session->set_flashdata('pesan', 'Login failed, please check username and password!');
@@ -240,6 +241,7 @@ class Admin extends CI_Controller
         $data['title'] = 'Laporan';
         $data['jurusan'] = $this->db->get('jurusan')->result_array();
         $data['tahun'] = $this->db->get('tahun_ajaran')->result_array();
+        $data['report'] = $this->db->get('report')->result_array();
         $this->load->view('admin/template/header.php');
         $this->load->view('admin/report.php', $data);
         $this->load->view('admin/template/footer.php');
@@ -266,6 +268,35 @@ class Admin extends CI_Controller
         $orientation = "potrait";
         $html = $this->load->view('admin/print', $this->data, true);
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    }
+
+    public function uploadReport()
+    {
+        $config['upload_path'] = './assets/filereport/';
+        $config['allowed_types'] = 'pdf';
+        $config['max_size'] = 5048;
+        $config['remove_space'] = TRUE;
+        $config['file_name'] = 'file_report';
+        $this->load->library('upload', $config);
+
+
+        if (!$this->upload->do_upload('file')) {
+            $this->session->set_flashdata('msgUploadReport', 'failed');
+            redirect('report');
+        } else {
+
+            $this->upload->data();
+            $data = [
+                "tgl_report" => $this->input->post('tgl'),
+                "keterangan" => $this->input->post('keterangan'),
+                "file" => $this->upload->data('file_name'),
+            ];
+            $insert = $this->db->insert('report', $data);
+            if ($insert) {
+                $this->session->set_flashdata('msgUploadReport', 'sukses');
+                redirect('report');
+            }
+        }
     }
 
     public function destroy($noalumni)
