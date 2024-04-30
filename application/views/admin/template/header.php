@@ -9,15 +9,15 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="assets/admin/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?= site_url('') ?>assets/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- DataTables -->
-    <link rel="stylesheet" href="assets/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="assets/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="assets/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= site_url('') ?>assets/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= site_url('') ?>assets/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= site_url('') ?>assets/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- IonIcons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="assets/admin/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= site_url('') ?>assets/admin/dist/css/adminlte.min.css">
 </head>
 <!--
 `body` tag options:
@@ -67,10 +67,15 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= site_url('') ?>assets/img/logo_smk.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?= $this->session->userdata('username'); ?></a>
+                        <a href="#" class="d-block">WEB ALUMNI | <?= $this->session->userdata('username'); ?></a>
+                    </div>
+                </div>
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="info text-center">
+                        <a href="#" class="d-block">SMK N 1 ANYER</a>
                     </div>
                 </div>
 
@@ -96,8 +101,40 @@
                             </a>
                         </li>
                         <li class="nav-item menu-open">
-                            <a href="<?= base_url('signOut'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'formData' ? 'active' : '')  ?>">
-                                <i class="nav-icon fas fa-padlock"></i>
+                            <a href="<?= base_url('mhsRegist'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'mhsRegist' ? 'active' : '')  ?>">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Registrasi Siswa
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item menu-open">
+                            <a href="<?= base_url('jurusan'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'jurusan' ? 'active' : '')  ?>">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Jurusan
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item menu-open">
+                            <a href="<?= base_url('tahun'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'tahun' ? 'active' : '')  ?>">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Tahun Lulus
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item menu-open">
+                            <a href="<?= base_url('report'); ?>" class="nav-link <?= ($this->uri->segment(1) === 'report' ? 'active' : '')  ?>">
+                                <i class="nav-icon fas fa-print"></i>
+                                <p>
+                                    Report
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item menu-open">
+                            <a href="<?= base_url('signOut'); ?>" class="nav-link <?= ($this->uri->segment(1) === '' ? 'active' : '')  ?>">
+                                <i class="nav-icon fas fa-power-off"></i>
                                 <p>
                                     LogOut
                                 </p>

@@ -21,9 +21,53 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-6">
-
-
+                        <div class="col-lg-3">
+                            <div class="card" style="border-radius: 20px;">
+                                <div class="card-top p-2 text-center" style="background: #24b8f2; border-radius: 20px;">
+                                    <p class="text-white text-bold">Registrasi Baru</p>
+                                </div>
+                                <a href="<?= site_url('mhsRegist') ?>" class="text-dark">
+                                    <div class="card-body text-center">
+                                        <h3><?= $jml_r; ?> Orang</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card" style="border-radius: 20px;">
+                                <div class="card-top p-2 text-center" style="background: tomato; border-radius: 20px;">
+                                    <p class="text-white text-bold">Jumlah Alumni</p>
+                                </div>
+                                <a href="<?= site_url('formData') ?>" class="text-dark">
+                                    <div class="card-body text-center">
+                                        <h3><?= $jml_m; ?> Orang</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card" style="border-radius: 20px;">
+                                <div class="card-top p-2 text-center" style="background: #3477eb; border-radius: 20px;">
+                                    <p class="text-white text-bold">Jumlah Jurusan</p>
+                                </div>
+                                <a href="<?= site_url('jurusan') ?>" class="text-dark">
+                                    <div class="card-body text-center">
+                                        <h3><?= $jml_j; ?> Jurusan</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card" style="border-radius: 20px;">
+                                <div class="card-top p-2 text-center" style="background: #34eb6b; border-radius: 20px;">
+                                    <p class="text-white text-bold">Jumlah Tahun Lulus</p>
+                                </div>
+                                <a href="<?= site_url('tahun') ?>" class="text-dark">
+                                    <div class="card-body text-center">
+                                        <h3><?= $jml_t; ?></h3>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <!-- /.row -->
@@ -33,5 +77,3 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-        
